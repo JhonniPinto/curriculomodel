@@ -1,0 +1,64 @@
+<% include partials/header %>
+<div class="row">
+   <div class="col-6 py-5">
+      <div class="jumbotron jumbotron-fluid p-4 col-12">
+         <div class="row align-items-center">
+            <div class="col-4">
+               <img src="/images/FotoPerfil2.jpg" class="w-75" alt="foto de perfil do Jhonni Pinto">
+            </div>
+            <div class="container col-8">
+                  <h1 class="display-4">Jhonni Pinto</h1>
+                  <p class="lead">Currículo com algumas características e habilidades.</p>
+            </div>
+         </div>
+      </div>
+      <div class="col-12">
+         <div class="row justify-content-center">
+            <div class="col-8 text-center">
+               <form class="form-signin" method="POST" action="/contato">
+                  <h1 class="h3 mb-3 font-weight-normal">Faça contato!</h1>
+                  <input type="text" name="nome" value="<%- form.nome %>" id="inNome" class="form-control" placeholder="Digite o seu nome" required autofocus>
+                  <% if( error && error.indexOf('nome') >= 0) { %>
+                     <small class="form-text text-muted">Digite seu nome. Preenchimento mínimo do campo: 5 digitos.</small>
+                 <% } %>
+                  <input type="email" name="email" value="<%- form.email %>" id="inEmail" class="form-control mt-3" placeholder="Digite seu e-mail" required>
+                  <% if( error && error.indexOf('email') >= 0) { %>
+                     <small class="form-text text-muted">Digite o seu e-mail junto do domínio.</small>
+                 <% } %>
+                  <input type="text" name="assunto" value="<%- form.assunto %>" id="inAssunto" class="form-control mt-3" placeholder="Digite o assunto" required>
+                  <% if( error && error.indexOf('assunto') >= 0) { %>
+                     <small class="form-text text-muted">Digite o assunto do contato com, no mínimo, 5 digitos.</small>
+                 <% } %>
+                  <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Enviar</button>
+                  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-6">
+      <div class="row justify-content-center">
+         <div class="col-8 p-5">
+            <table class="mb-5">
+               <% camposEInfos.forEach(campo => { %>
+                  <% if(campo.infos.length > 0) { %>
+                  <tr>
+                     <th class="text-center pb-3 pt-5"><i class="mr-3 h1 text-success <%- campo.icone %>"></i></th>
+                     <th class="pb-3 pt-5"><h3 class="mt-0"><%- campo.nome %></h3></th>
+                  </tr>
+                  <% campo.infos.forEach(info => { %>
+                  <tr>
+                     <td></td>
+                     <td><a  <% if (info.path) { %> href="<%- info.path %>" <% } %> ><li><%- info.nome %></li></a></td>
+                  </tr>
+                  <% }) %>
+                  <% } %>
+               <% }) %>
+            </table>
+         </div>
+   </div>
+</div>
+
+</div>
+
+<% include partials/footer %>

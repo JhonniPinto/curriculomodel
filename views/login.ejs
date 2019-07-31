@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<div class="text-center d-flex justify-content-center my-5">
+    <form class="form-signin col-3 my-5" method="POST">
+        <img class="mb-4" src="/images/address-book.png" alt="foto de perfil do Jhonni" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Identifique-se</h1>
+        <input name="username" type="text" id="inUserName" class="form-control" placeholder="Digite o nome do usuário" required autofocus>
+        <input name="password" type="password" id="inPassword" class="form-control my-3" placeholder="Digite a usa senha" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+    </form>
+</div>
+
+<% include partials/footer %>

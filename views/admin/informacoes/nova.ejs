@@ -1,0 +1,28 @@
+<% include ../../partials/header %>
+
+<h2>Nova informação</h2>
+<a href="/admin">Voltar</a>
+<form method="POST">
+    <div class="form-group">
+        <label for="inNome">Informação:</label>
+        <input name="nome" value="<%- form.nome %>" type="text" class="form-control" id="inNome" placeholder="Digite o nome da informação" required>
+        <% if( error && error.indexOf('nome') >= 0) { %>
+            <small class="form-text text-muted">Digite o nome da informação com, no mínimo, 3 digitos. No máximo 50 dígitos</small>
+        <% } %>
+    </div>
+    <div class="form-group">
+        <label for="inPath">Path:</label>
+        <input name="path" value="<%- form.path %>" type="text" class="form-control" id="inPath" placeholder="Digite um link para a informação, se houver">
+    </div>
+    <div class="form-group">
+        <label for="inCampo">Campo ao qual pertence:</label>
+        <select class="form-control" id="inCampo" name="campo_id">  
+        <% allCampos.forEach(campo => { %>
+            <option value="<%- campo.id %>" <% if (form && campo.id === form.campo_id) { %> selected <% } %> ><%- campo.nome %></option>
+        <% }) %>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<% include ../../partials/footer %>

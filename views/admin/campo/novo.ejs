@@ -1,0 +1,24 @@
+<% include ../../partials/header %>
+
+<h2>Novo Campo</h2>
+<a href="/admin">Voltar</a>
+<form method="POST">
+    <div class="form-group">
+        <label for="inNome">Campo:</label>
+        <input name="nome" value="<%- form.nome %>" type="text" class="form-control" id="inNome" placeholder="Digite o nome do campo">
+        <% if( error && error.indexOf('nome') >= 0) { %>
+            <small class="form-text text-muted">Digite o nome do campo com, no mínimo, 5 digitos.</small>
+        <% } %>
+    </div>
+    <div class="form-group">
+        <label for="inIcone">Icone:</label>
+        <input name="icone" value="<%- form.icone %>" type="text" class="form-control" id="inIcone" placeholder="FontAwesome. Ex: fas fa-user" aria-describedby="iconHelp">
+        <% if( error && error.indexOf('icone') >= 0) { %>
+            <small class="form-text text-muted">Digite a classe do ícone com, no mínimo, 5 digitos.</small>
+        <% } %>
+        <a href="https://fontawesome.com/icons" target="_blank"><small id="iconHelp" class="form-text text-muted">Escolha o seu ícone</small></a>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+<% include ../../partials/footer %>
