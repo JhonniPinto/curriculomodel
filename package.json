@@ -20,7 +20,7 @@
   "author": "Jhonni Pinto",
   "license": "MIT",
   "dependencies": {
-    "@hapi/joi": "^15.1.0",
+    "@hapi/joi": "^15.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "ejs": "^2.6.2",
